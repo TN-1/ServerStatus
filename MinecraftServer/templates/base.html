@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'MinecraftServer/bootstrap.min.css' %}">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand">{% block pagename%}{% endblock %}</p>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% block rightlink %}{% endblock %}">{% block righttext %}{% endblock %}</a></li>
+                    <li><a href="{% block rightlink2 %}{% endblock %}">{% block righttext2 %}{% endblock %}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="content">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

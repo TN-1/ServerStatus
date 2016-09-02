@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Minecraft Server Status {% endblock %}
+{% block pagename%} Minecraft Server Status {% endblock %}
+{% block rightlink %} dashboard/ {% endblock %}
+{% block righttext %} Dashboard {% endblock %}
+{% block content %}
+    {% if not admin %}
+        {% for stat in status %}
+            <div class="status">
+                <p>
+                    Server Name: {{ stat.description }}
+                </p>
+                <p>
+                    Players online: {{stat.players.online}}
+                </p>
+                <p>
+                    Latency: {{stat.latency}}
+                </p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>
+        {{ status }}
+        </p>
+        <p>
+        {{ admin.name }}
+        {{ admin.contact }}
+        </p>
+    {% endif %}
+{% endblock %}
+

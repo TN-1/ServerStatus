@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block pagename%} Dashboard {% endblock %}
+{% block rightlink %} {% url 'admin:index' %} {% endblock %}
+{% block righttext %} Admin {% endblock %}
+{% block rightlink2 %} /logout {% endblock %}
+{% block righttext2 %} Logout {% endblock %}
+{% block content %}
+    {% if auth %}
+        <p>Welcome {{ user.username }}</p>
+    {% elif not auth %}
+        <p>Not logged in!</p>
+    {% endif %}
+{% endblock %}
+
